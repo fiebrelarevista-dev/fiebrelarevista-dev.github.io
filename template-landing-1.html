@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biefre 0</title>
+    
+    <style>
+        /* This section controls how things LOOK (CSS) */
+        
+        body {
+            background-color: black;    /* Sets the whole page to black */
+            color: white;               /* Sets all text to white */
+            font-family: 'playfair';    /* Uses a clean, modern font */
+            margin: 40px;               /* Adds space around the edges of the page */
+            line-height: 1.6;           /* Adds space between lines of text for readability */
+        }
+
+        /* This is a 'Container' for your images to help with layouts */
+
+        /* 1. The Wrapper (The Parent) */
+        /* flexbox layout se supone que es la forma moderna de tener texto e imagenes en conjunto sin que se rompa todo*/
+        .flex-container {
+            display: flex;          /* le dice al div que sus hijos ahora son bloques flexibles, o sea que pueden modificar dimensiones y ubicacion? */
+            flex-direction: row;    /* alinea los items en una fila */
+            align-items: flex-start; /* los alinea en la parte de arriba del contenedor */
+            gap: 30px;              /* el espacio invisible entre texto e imagen */
+            margin-bottom: 40px;
+        }
+        /* 3. The Image (The second partner) */
+        .image-right-flex {
+            width: 600px;             /* Your chosen size */
+            border-radius: 10px;
+        /* Note: We removed 'float' because it interferes with Flexbox */
+        }
+
+        /* STYLE 2: The "Small & Centered" Image */
+        .image-below {
+            display: block;      /* Makes it act like a block (takes up its own line) */
+            margin: 30px auto;   /* 'auto' centers it horizontally; 30px adds vertical space */
+            width: 300px;        /* Fixed small size */
+            border: 2px solid white;
+        }
+
+        /* This 'clears' the float so the next section of text doesn't get 
+           stuck trying to wrap around the image above it. */
+        /* basicamente dice "Lo que esta arriba modo flex olvidate, lo que viene aca abajo es config nueva, lo de arriba pierde jerarquia aca abajo"*/
+        .clear {
+            clear: both;
+        }
+
+       .diagonal-split-text {
+        /* This makes the "box" only as wide as your text, keeping the split centered
+        esto es necesario porque el párrafo se estira a lo ancho de toda la página, no dentro de un marco definido */
+            display: inline-block;
+        /* esta es toda la magia de la diagonal que colorea el texto, aparentemente la propiedad linear gradient + el angulo (135) hacen este efecto, 
+        dps resta agregar los colores para cada porcion, 50/50 en este caso 
+        lo falopa es que es un fondo, no es que le da color al texto. Las letras son transparentes y el fondo se vuelve blanco/rojo */
+
+        /* 1. Create the diagonal background */
+        /* 135deg creates that 'hypotenuse' angle from top-left to bottom-right and one code is for the white characters, the other for the red ones*/
+            background: linear-gradient(135deg, #ffffff 50%, #ff0000 50%);
+
+
+            /* esto la verdad no lo entiendo, si lo comento todo no cambia nada pero hay que ver que pasa si uno va agregándole cosas al fondo */
+            /* 2. The Magic: This clips the background to the text only 
+            This is a special command that tells the color: "Don't fill the whole rectangular box; only fill the pixels where a letter exists."*/
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            /* 3. Make the actual text transparent so the background shows through */
+            color: transparent;
+
+            /* 4. Visual tweaks */
+            /* Paragraph styling */
+            font-size: 1.5rem;
+            line-height: 1.4;
+            margin: 20px 0;
+            font-weight: 700; /* Thicker text helps the effect stand out */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Biefre:0</h1>
+    
+    <p>In this world, is the destiny of mankind controlled by some transcendental entity or law?
+        Is it like the hand of God hovering above?
+        At least it is true that man has no control; even over his own will.</p>
+
+    <h2>My Gallery</h2>
+
+<div class="flex-container"> 
+    <p class="diagonal-split-text">
+        Texto que iría al lado de la imagen de la derecha.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a augue eget ex efficitur maximus sed sed justo. 
+        Suspendisse lorem leo, rutrum tincidunt maximus sed, auctor eu turpis. Ut quis faucibus eros.
+        Donec eu congue libero, a faucibus libero. Vestibulum id feugiat lectus. Pellentesque sapien lacus, vehicula quis lectus vel, gravida ullamcorper ex. Vestibulum ut accumsan ante. Pellentesque malesuada, nibh id cursus tempor, tortor turpis tincidunt purus, non aliquet enim sapien sit amet lorem. Suspendisse metus nisi, lacinia ac ligula et, ultricies egestas ex. Quisque condimentum risus ac mi venenatis lacinia. Donec laoreet libero id eros feugiat sagittis. Proin egestas quam at orci pharetra, vitae vulputate ligula placerat. Integer blandit nibh nec pellentesque commodo. Sed mattis metus id dui congue, sed commodo lacus sodales. Curabitur vitae feugiat metus. Phasellus blandit mi a sapien fermentum placerat. Sed sodales mi eget erat suscipit, non vestibulum lacus aliquam.
+        Cras commodo odio vitae nibh dictum mollis. Nam venenatis nunc ut tempus rhoncus. Aliquam dictum tristique auctor. Vivamus finibus molestie malesuada. Aenean nec est dolor. Sed ornare tortor sapien, eget eleifend magna mollis id. Integer eu sapien et eros lacinia tincidunt et at leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut ante nec lorem accumsan efficitur quis vitae tortor. Nulla vel felis convallis, ultricies sapien sit amet, suscipit orci. Phasellus dignissim volutpat pulvinar. Nulla sed quam ex.
+        Ut at lectus augue. Nam tincidunt fringilla augue, varius ullamcorper sem suscipit ac. Morbi vel augue at turpis bibendum tempor. Nunc eu ultricies lorem. Phasellus nec lacus urna. Nam nunc magna, cursus ut efficitur in, varius in lectus. In commodo sem id neque sodales molestie. Aenean non scelerisque orci.
+        Integer in libero quis nisl tincidunt mattis vitae vel lacus. Donec ac blandit sem. Praesent in facilisis sem. Integer eu porta magna, id rhoncus nulla. Nam nec justo odio. Aliquam erat volutpat. Proin id venenatis metus. Curabitur ac nisl ut nunc feugiat varius laoreet ac arcu. Nunc maximus dolor consectetur erat convallis viverra. Nullam eget purus vitae nulla gravida molestie. Nam ullamcorper suscipit felis eget vehicula. 
+    </p>
+    <img src="./assets/blame-architecture-2.jpg" alt="Large side image" class="image-right-flex">
+</div>
+    <div class="clear"></div>
+
+    <hr> <p>
+        Texto que iría sobre la imagen de abajo.
+        Nulla dignissim ex sed dolor cursus tristique. 
+        Ut et magna vitae mi porttitor pulvinar. Morbi auctor auctor sapien, sed mattis purus posuere non. 
+        Nam in risus est. Pellentesque efficitur id lectus sed tincidunt. Proin imperdiet metus a leo sodales mollis. 
+    </p>
+
+    <img src="./assets/blame-architecture-1.jpg" alt="Small centered image" class="image-below">
+
+    <p style="text-align: center;"><em>Panel random de BLAME 1.</em></p>
+
+
+
+
+
+
+</body>
+</html>
