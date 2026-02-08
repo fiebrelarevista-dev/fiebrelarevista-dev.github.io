@@ -20,20 +20,17 @@
 
         /* 1. The Wrapper (The Parent) */
         /* flexbox layout se supone que es la forma moderna de tener texto e imagenes en conjunto sin que se rompa todo*/
-        .flex-container {
-            display: flex;          /* le dice al div que sus hijos ahora son bloques flexibles, o sea que pueden modificar dimensiones y ubicacion? */
-            flex-direction: row;    /* alinea los items en una fila */
-            align-items: flex-start; /* los alinea en la parte de arriba del contenedor */
-            gap: 30px;              /* el espacio invisible entre texto e imagen */
-            margin-bottom: 40px;
+    
+        .center-block {
+            margin: 0 auto;      /* centra el bloque de forma horizontal (auto centra la imagen horizontalmente) */
+            width: 60%;          /* Limits how wide the text block gets */
+            max-width: 800px;    /* Prevents it from getting too wide on huge monitors */
         }
-        /* 3. The Image (The second partner) */
-        .image-right-flex {
-            width: 600px;             /* Your chosen size */
-            border-radius: 10px;
-        /* Note: We removed 'float' because it interferes with Flexbox */
+        .sub-title-right {
+            text-align: right;   /* Aligns the text to the right side of the 60% block */
+            display: block;      /* Ensures it takes up the full width of the line */
+            font-style: italic; 
         }
-
         /* STYLE 2: The "Small & Centered" Image */
         .image-below {
             display: block;      /* Makes it act like a block (takes up its own line) */
@@ -41,21 +38,16 @@
             width: 300px;        /* Fixed small size */
             border: 2px solid white;
         }
+        
 
-        /* This 'clears' the float so the next section of text doesn't get 
-           stuck trying to wrap around the image above it. */
-        /* basicamente dice "Lo que esta arriba modo flex olvidate, lo que viene aca abajo es config nueva, lo de arriba pierde jerarquia aca abajo"*/
-        .clear {
-            clear: both;
-        }
+        /* esta es toda la magia de la diagonal que colorea el texto,aparentemente la propiedad linear gradient + el angulo (135) hacen este efecto, 
+        dps resta agregar los colores para cada porcion, 50/50 en este caso  lo falopa es que es un fondo, no es que le da color al texto. 
+        Las letras son transparentes y el fondo se vuelve blanco/rojo */
 
        .diagonal-split-text {
         /* This makes the "box" only as wide as your text, keeping the split centered
         esto es necesario porque el párrafo se estira a lo ancho de toda la página, no dentro de un marco definido */
             display: inline-block;
-        /* esta es toda la magia de la diagonal que colorea el texto, aparentemente la propiedad linear gradient + el angulo (135) hacen este efecto, 
-        dps resta agregar los colores para cada porcion, 50/50 en este caso 
-        lo falopa es que es un fondo, no es que le da color al texto. Las letras son transparentes y el fondo se vuelve blanco/rojo */
 
         /* 1. Create the diagonal background */
         /* 135deg creates that 'hypotenuse' angle from top-left to bottom-right and one code is for the white characters, the other for the red ones*/
@@ -78,47 +70,94 @@
             margin: 20px 0;
             font-weight: 700; /* Thicker text helps the effect stand out */
         }
+
+        /* esto hace la magia del texto en columnas tipo "diario" que está en cada capítulo */
+        .journal-block {
+            column-count: 2;        /* The magic line: splits text into 2 columns */
+            column-gap: 50px;       /* The space (gutter) between the two columns */
+            width: 70%;             /* Adjust this (60%, 50%, etc.) to make it skinnier */
+            margin: 0 auto;         /* Keeps the skinnier block centered on the screen */
+            text-align: justify;    /* Classic journal look: aligns text to both left and right */
+            hyphens: auto;          /* Prevents big ugly gaps by breaking long words with hyphens */
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        /* clave para customizar el espacio entre párrafos y así evitar el uso de saltos de línea como el br que es muy pronunciado 
+        también toquetié un poco la clase para no tener que repetir código */
+        .tight-gap { 
+            margin-bottom: 4px; /* A very subtle, small gap */
+            font-size: 10pt;
+            font-family: Verdana,sans-serif;
+        }
+
+        /* idéntico a la clase de arriba pero con un espacio más grande entre párrafos */
+        .medium-gap {
+            margin-bottom: 20px; /* A standard, breathable gap */
+            font-size: 10pt;
+            font-family: Verdana,sans-serif;
+        }
+
+        /* esto aplica para todos los headers tipo h2, es obvio que está mal pero bueno por ahora funciona */
+        h2 {
+            line-height: 1.0; /* distancia custom entre salto de linea con el br*/
+            margin-bottom: 20px; 
+            text-align: center; /* RECORDAR QUE ESTO CENTRA EL TEXTO */
+        }
+
+        .capitulo {
+            font-size: 12pt;
+            font-weight: bold;
+            font-family: Verdana,sans-serif;
+            text-align: left;
+        }
+
     </style>
 </head>
 <body>
 
     <h1>Biefre:0</h1>
-    
-    <p>In this world, is the destiny of mankind controlled by some transcendental entity or law?
-        Is it like the hand of God hovering above?
-        At least it is true that man has no control; even over his own will.</p>
 
-    <h2>My Gallery</h2>
-
-<div class="flex-container"> 
-    <p class="diagonal-split-text">
-        Texto que iría al lado de la imagen de la derecha.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a augue eget ex efficitur maximus sed sed justo. 
-        Suspendisse lorem leo, rutrum tincidunt maximus sed, auctor eu turpis. Ut quis faucibus eros.
-        Donec eu congue libero, a faucibus libero. Vestibulum id feugiat lectus. Pellentesque sapien lacus, vehicula quis lectus vel, gravida ullamcorper ex. Vestibulum ut accumsan ante. Pellentesque malesuada, nibh id cursus tempor, tortor turpis tincidunt purus, non aliquet enim sapien sit amet lorem. Suspendisse metus nisi, lacinia ac ligula et, ultricies egestas ex. Quisque condimentum risus ac mi venenatis lacinia. Donec laoreet libero id eros feugiat sagittis. Proin egestas quam at orci pharetra, vitae vulputate ligula placerat. Integer blandit nibh nec pellentesque commodo. Sed mattis metus id dui congue, sed commodo lacus sodales. Curabitur vitae feugiat metus. Phasellus blandit mi a sapien fermentum placerat. Sed sodales mi eget erat suscipit, non vestibulum lacus aliquam.
-        Cras commodo odio vitae nibh dictum mollis. Nam venenatis nunc ut tempus rhoncus. Aliquam dictum tristique auctor. Vivamus finibus molestie malesuada. Aenean nec est dolor. Sed ornare tortor sapien, eget eleifend magna mollis id. Integer eu sapien et eros lacinia tincidunt et at leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut ante nec lorem accumsan efficitur quis vitae tortor. Nulla vel felis convallis, ultricies sapien sit amet, suscipit orci. Phasellus dignissim volutpat pulvinar. Nulla sed quam ex.
-        Ut at lectus augue. Nam tincidunt fringilla augue, varius ullamcorper sem suscipit ac. Morbi vel augue at turpis bibendum tempor. Nunc eu ultricies lorem. Phasellus nec lacus urna. Nam nunc magna, cursus ut efficitur in, varius in lectus. In commodo sem id neque sodales molestie. Aenean non scelerisque orci.
-        Integer in libero quis nisl tincidunt mattis vitae vel lacus. Donec ac blandit sem. Praesent in facilisis sem. Integer eu porta magna, id rhoncus nulla. Nam nec justo odio. Aliquam erat volutpat. Proin id venenatis metus. Curabitur ac nisl ut nunc feugiat varius laoreet ac arcu. Nunc maximus dolor consectetur erat convallis viverra. Nullam eget purus vitae nulla gravida molestie. Nam ullamcorper suscipit felis eget vehicula. 
-    </p>
-    <img src="./assets/blame-architecture-2.jpg" alt="Large side image" class="image-right-flex">
+<div class="center-block"> 
+        <!-- se lee raro pero el br le agrega el salto de línea para que quede como el word -->
+        <h2 style="text-align: center; font-size: 48pt;"><strong>INVOCA</strong><br>
+        CIÓN
+        </h2>
+    <span class="sub-title-right">[Situación 0]</span>
+    <p>Hace aproximadamente doscientos años, la historia llegó a su fin. 
+        Sin embargo, las puertas del cielo no se abrieron. En los albores del nacimiento de la</span><em>Nueva Carne</em>, 
+        un virus se propagó entre los circuitos del espécimen naciente. El poder cósmico de </span><em>Cthonos</span></em>, 
+        enviado desde el reverso del mundo, cayó sobre nosotros como un pesado manto y lo nubló todo.</span></p>
+        <p class="tight-gap">Esta vez, esa entidad monstruosa no fue invocada con los antiguos poderes arcanos y, por eso mismo, tampoco sirven las viejas defensas. 
+        El capital, uno de los tantos rostros de <em>Cthonos</em>, 
+        se propagó a través del ciberespacio: circuitos recalentados, máquinas oxidadas y chatarra fueron su cuerpo. </p>
+        <p class="medium-gap">La infiltración psíquica del capital se extendió como larvas por nuestros ojos y nuestros oídos y, como un hongo o un tumor, empezó a anidar en nuestra psiquis. 
+        Es omnipresente pero invisible. Solo podemos intuirla en destellos fugaces, en pequeñas inconsistencias que revelan que el mundo está siendo carcomido desde sus cimientos.
+        <p class="medium-gap">Ha pasado ya más de medio siglo desde que se produjo el <em>Gran Desgarro</em> sobre el tejido de la <em>Nueva Carne</em>.</p>
+        <p class="medium-gap">El mundo hoy luce como un cúmulo de carne mutilada, despojos apilados que construyen, entre fragmentos, un engendro semi-humano. 
+            La totalidad fue desgarrada en trozos cada vez más pequeños, separados por una nada que se expande y los aleja cada vez más. 
+            La voracidad del capital fragmenta y consume esta carne, que también es la suya, precipitándose de lleno al vacío, acercándose a la Singularidad, al punto de no retorno. 
+            Como Erisictón, castigado por los dioses a tener un hambre infinita, Cthonos terminará por devorarse también a sí mismo.</p>
+         <!-- creo que acá me conviene hacer esto a manopla en vez de usar otra clase porque es super específico para esta situación puntual -->
+         <p style="text-align: right; display: block; font-size: 10pt; font-family: Verdana,sans-serif;margin-bottom: 4px;" >Autofluxión patológica.</p>
+         <p style="text-align: center; display: block; font-size: 10pt; font-family: Verdana,sans-serif;margin-bottom: 4px;" >Ouroboro trans-sintético.</p>
+         <p style="text-align: left; display: block; font-size: 10pt; font-family: Verdana,sans-serif;margin-bottom: 20px;" >Ontofagia digital.</p>
+         <p class="tight-gap">El tiempo se curvó sobre sí, conformando un bucle que parece no tener salida. Vivimos el eterno retorno de lo nuevo. 
+            Todo cambia a ritmos vertiginosos, en una modernidad líquida en la que nada permanece estable pero, sin embargo, en la que parece imposible imaginar una novedad radical. 
+            Un ataque DDOS teledirigido por milicias digitales que satura los servidores con tráfico basura.</p>
+        <p class="tight-gap">El fin de la historia, del arte y de las ideologías, nos llevó a la orilla del mundo. Más allá, no hay nada.</p>
+        <br>
+        <h2 class="capitulo">I. Y así fue como un día el cielo se volvió gris</h2>
+        <span class="sub-title-right" style="margin-bottom: 4px;">“No es smog: es estática, ruido blanco.</span>
+        <span class="sub-title-right" style="margin-bottom: 4px;">Ciudades enteras aplastadas por</span>
+        <span class="sub-title-right"style="margin-bottom: 28px;">señales-basura que vienen desde todas partes…”</span>
+        <div class="journal-block">El desarrollo capitalista acelerado destruye la biósfera y se lanza en una carrera a contrarreloj a poblar Marte. En la tierra, nuevas ultratecnologías capaces de razonar desplazan progresivamente a los seres humanos. Los modelos de lenguaje evolucionan hasta convertirse en una nueva especie, volviéndose agentes autónomos que intervienen cada vez más en la realidad.
+            Los estados se revelan como máquinas de guerra. Hacia afuera, el asesinato en masa se ejecuta con drones teledirigidos, convirtiendo el genocidio en una experiencia asimilable a jugar a un videojuego. Hacia adentro, la hipervigilancia estatal extrae y centraliza nuestros datos, tendiendo hacia una nueva forma de totalitarismo.
+            La ingeniería genética en humanos avanza, dando a luz a una nueva forma de racismo. Pasamos de las prótesis externas a la manipulación genética y la delegación cognitiva, dando a luz a la primera generación de niños transhumanos.
+            La línea entre lo virtual y lo “real” se disuelve: deepfakes, imágenes y videos generados por IA y noticias falsas moldean nuestra visión del mundo, mientras el tiempo que dedicamos a navegar en la virtualidad se dispara.
+            Asediados desde afuera por la precarización de la vida, la incertidumbre y la soledad, minados desde adentro por la guerra cognitiva del escroleo infinito, nos convertimos en zombies, autómatas al servicio del algoritmo.
+        </div>
+        <p class="medium-gap" style="text-align: center;">¿Era este el futuro que soñábamos?</p>  
 </div>
-    <div class="clear"></div>
-
-    <hr> <p>
-        Texto que iría sobre la imagen de abajo.
-        Nulla dignissim ex sed dolor cursus tristique. 
-        Ut et magna vitae mi porttitor pulvinar. Morbi auctor auctor sapien, sed mattis purus posuere non. 
-        Nam in risus est. Pellentesque efficitur id lectus sed tincidunt. Proin imperdiet metus a leo sodales mollis. 
-    </p>
-
-    <img src="./assets/blame-architecture-1.jpg" alt="Small centered image" class="image-below">
-
-    <p style="text-align: center;"><em>Panel random de BLAME 1.</em></p>
-
-
-
-
-
-
 </body>
 </html>
