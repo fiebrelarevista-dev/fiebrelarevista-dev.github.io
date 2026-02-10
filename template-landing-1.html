@@ -36,8 +36,7 @@
         .image-below {
             display: block;      /* Makes it act like a block (takes up its own line) */
             margin: 30px auto;   /* 'auto' centers it horizontally; 30px adds vertical space */
-            width: 300px;        /* Fixed small size */
-            border: 2px solid white;
+            width: 200px;        /* Fixed small size */
         }
         
 
@@ -90,6 +89,8 @@
             margin-bottom: 4px; /* A very subtle, small gap */
             font-size: 16pt;
             font-family: Verdana,sans-serif;
+            /* COLOR FUENTE*/
+            color: #8B0000 ;
         }
 
         /* idéntico a la clase de arriba pero con un espacio más grande entre párrafos */
@@ -97,6 +98,8 @@
             margin-bottom: 20px; /* A standard, breathable gap */
             font-size: 16pt;
             font-family: Verdana,sans-serif;
+            /* COLOR FUENTE*/
+            color: #8B0000;
         }
 
         /* esto aplica para todos los headers tipo h2, es obvio que está mal pero bueno por ahora funciona */
@@ -107,10 +110,19 @@
         }
 
         .capitulo {
-            font-size: 12pt;
+            font-size: 18pt;
             font-weight: bold;
             font-family: Verdana,sans-serif;
             text-align: left;
+        }
+
+        .binary-block {
+            text-align: center;
+            font-style: italic;
+            font-family: monospace;; /* Optional: binary looks great in fixed-width fonts */
+            color: white;            /* Optional: subtle grey looks more "hidden" */
+            line-height: 1.2;       /* Controls the gap between your binary lines */
+            margin: 20px auto;
         }
 
     </style>
@@ -125,7 +137,7 @@
         C I Ó N
         </h2>
     <span class="sub-title-right">[Situación 0]</span>
-    <p>Hace aproximadamente doscientos años, la historia llegó a su fin. 
+    <p class="tight-gap">Hace aproximadamente doscientos años, la historia llegó a su fin. 
         Sin embargo, las puertas del cielo no se abrieron. En los albores del nacimiento de la </span><em>Nueva Carne</em>, 
         un virus se propagó entre los circuitos del espécimen naciente. El poder cósmico de </span><em>Cthonos</span></em>, 
         enviado desde el reverso del mundo, cayó sobre nosotros como un pesado manto y lo nubló todo.</span></p>
@@ -140,9 +152,9 @@
             La voracidad del capital fragmenta y consume esta carne, que también es la suya, precipitándose de lleno al vacío, acercándose a la Singularidad, al punto de no retorno. 
             Como Erisictón, castigado por los dioses a tener un hambre infinita, Cthonos terminará por devorarse también a sí mismo.</p>
          <!-- creo que acá me conviene hacer esto a manopla en vez de usar otra clase porque es super específico para esta situación puntual -->
-         <p style="text-align: right; display: block; font-size: 10pt; font-family: Verdana,sans-serif;margin-bottom: 4px; font-size: 12pt;" >Autofluxión patológica.</p>
-         <p style="text-align: center; display: block; font-size: 10pt; font-family: Verdana,sans-serif;margin-bottom: 4px; font-size: 12pt;" >Ouroboro trans-sintético.</p>
-         <p style="text-align: left; display: block; font-size: 10pt; font-family: Verdana,sans-serif;margin-bottom: 20px; font-size: 12pt;" >Ontofagia digital.</p>
+         <p style="text-align: right; display: block; font-family: Verdana,sans-serif;margin-bottom: 4px; font-size: 12pt;" >Autofluxión patológica.</p>
+         <p style="text-align: center; display: block; font-family: Verdana,sans-serif;margin-bottom: 4px; font-size: 12pt;" >Ouroboro trans-sintético.</p>
+         <p style="text-align: left; display: block; font-family: Verdana,sans-serif;margin-bottom: 20px; font-size: 12pt;" >Ontofagia digital.</p>
          <p class="tight-gap">El tiempo se curvó sobre sí, conformando un bucle que parece no tener salida. Vivimos el eterno retorno de lo nuevo. 
             Todo cambia a ritmos vertiginosos, en una modernidad líquida en la que nada permanece estable pero, sin embargo, en la que parece imposible imaginar una novedad radical. 
             Un ataque DDOS teledirigido por milicias digitales que satura los servidores con tráfico basura.</p>
@@ -158,7 +170,37 @@
             La línea entre lo virtual y lo “real” se disuelve: deepfakes, imágenes y videos generados por IA y noticias falsas moldean nuestra visión del mundo, mientras el tiempo que dedicamos a navegar en la virtualidad se dispara.
             Asediados desde afuera por la precarización de la vida, la incertidumbre y la soledad, minados desde adentro por la guerra cognitiva del escroleo infinito, nos convertimos en zombies, autómatas al servicio del algoritmo.
         </div>
-        <p class="medium-gap" style="text-align: center;">¿Era este el futuro que soñábamos?</p>  
+        <p class="medium-gap" style="text-align: center;">¿Era este el futuro que soñábamos?</p>
+        <br>
+        <h2 class="capitulo">II. Máquinas y gusanos</h2>
+        <div class="journal-block">Mientras los megalómanos de Silicon Valley, con su nihilismo ilustrado y su fanatismo por la ciencia ficción, materializaban sus sueños húmedos hechos de circuitos y acero, ¿dónde estábamos nosotros?</div>
+        <br>
+        <h2 class="capitulo">III. Abominables criaturas</h2>
+        <div class="journal-block"> Hoy más que nunca una vieja pregunta vuelve a cobrar actualidad: <em>¿qué hacer?</em> Las utopías políticas y artísticas del siglo pasado lucen como meros accidentes históricos, errores olvidables. Las visiones del futuro todavía lucen borrosas. En el medio, surgen los monstruos. 
+            Partimos de la constatación de un vacío. Lo virtual ha fagocitado gran parte de las notas periodísticas y de opinión, probablemente para mejor. La fugacidad de internet parece ser apropiada para las noticias, igualmente fugaces. Los libros, por otra parte, muy a duras penas conservan su existencia con ese halo de seriedad y profundidad. En el medio, hay un abismo.
+            Donde antes existían las revistas, hoy casi no queda nada. Objetos ligeros pero punzantes, descartables o coleccionables, han pasado a mejor vida, transmutando su existencia también al mundo digital. Sin embargo, la lógica de TikTok ha llegado a dominar casi toda esa esfera: el escroleo infinito, desatento y no comprometido, pasó a ser la forma principal de navegar la virtualidad en general. Entre la egocéntrica y masturbatoria lógica del algoritmo y la capacidad de atención minada desde dentro, el mundo contemporáneo se asemeja a la más clásica de las distopías. 
+            Frente a eso, creemos que una revista puede generar un corte, una fragmentación de la experiencia virtual que nos recuerde, aunque sea por un instante, que somos seres carnales. Tal vez de ese intento surjan solo demonios, o quizás nuevas utopías. Eso está por verse.
+            FIEBRE es una revista física que apuesta por otros modos de circulación del pensamiento. Busca tender líneas de conexión entre los distintos nichos y circuitos culturales de Buenos Aires que se rehúsan a ceder ante la fuerza desmaterializante de lo virtual. FIEBRE es una revista de arte, filosofía y cultura, que busca pensar nuestro presente con el objetivo de encontrar posibles líneas de fuga hacia el futuro. 
+            Pero FIEBRE es más que eso. Es horror cósmico, neuroimplantes, carne en descomposición y punk. Es el cruce entre la mística arcana, las prótesis digitales, las larvas teledirigidas penetrando en nuestros ojos y el pogo desenfrenado en un sótano porteño. Es la psicodelia de los hongos anidando en nuestra psiquis. Es la invocación de entidades sobrenaturales a través del ciberespacio, o la metamorfosis extática de una multitud de cuerpos putrefactos en una proyección de cine clase B.
+            Somos carne recalentada, cuerpos informes a alta temperatura que buscan eliminar al invasor. No tenemos ideas claras, solo delirios febriles.
+        </div>
+        <br>
+        <p style="text-align: center;"><em>Entre la granítica densidad de los libros y la insoportable levedad</em></p>
+        <p style="text-align: center;"><em>del ser digital, está la revista.</em></p>
+        <p style="text-align: center;"><em>Entre la solidez de la tradición y la modernidad líquida, está FIEBRE.</em></p>
+        <p style="text-align: center;"><em>FIEBRE es como la miel: ambigua y deliciosa.</em></p>
+        <br>
+        <img src="./assets/LOGO1.png" class="image-below">
+        <br>
+        <pre class="binary-block">
+01010000011011110111001000100000011001010111001101101111001000000110
+11010110010100100000011001010110111001100011011011110110111001110100
+01110010011000010111001101110100011001010010111000100000010100000110
+11110111001001110001011101010110010100100000011110010110000100100000
+01101110011011110010000001110011011011110111001100100000011000110110
+10010110010101100111011011110010000001100001001000000111010001101111
+0110010001101111001000000110010101110011011101000110111100101110
+</pre>
 </div>
 </body>
 </html>
